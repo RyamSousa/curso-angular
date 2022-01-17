@@ -1,3 +1,16 @@
 .tab-content{
     padding: 40px 2% 0px 2%;
 }
+
+.mat-card-live{
+  border: 1px solid #CFD8DC;
+  border-radius: 4px 3px 6px / 2px 4px;
+  padding: 15px 0% 0% 0%;
+  margin: 5px;
+}
+
+.mat-card-title-live{
+  padding: 0px 15px 0px 10px;
+  margin-bottom: 0px;
+  min-height: 70px;
+}
