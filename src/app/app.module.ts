@@ -23,6 +23,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
 import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,

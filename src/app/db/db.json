@@ -95,6 +95,14 @@
             "liveLink": "https://www.youtube.com/embed/SpWFDTvgS9k",
             "liveDate": "2022-01-18T13:30:00",
             "liveTime": "",
+            "id": 11
+        },
+        {
+            "liveName": "Microservices com Spring Cloud",
+            "channelName": "Michelli Brito",
+            "liveLink": "https://www.youtube.com/embed/RocBZk2V8xM",
+            "liveDate": "2022-01-25T18:01",
+            "liveTime": "18:01",
             "id": 12
         }
     ]
