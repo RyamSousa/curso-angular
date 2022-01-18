@@ -14,11 +14,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
 import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,11 @@ import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form
     MatDialogModule,
     MatChipsModule,
     MatTabsModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     FlexLayoutModule
   ],

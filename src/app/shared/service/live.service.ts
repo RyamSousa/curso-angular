@@ -21,4 +21,9 @@ export class LiveService {
   public getLives(): Observable<Live[]>{
     return this.httpClient.get<Live[]>(this.apiUrl);
   }
+
+  public createLives(live: Live): Observable<Live>{
+    return this.httpClient.post<Live>(this.apiUrl, live, this.httpOptions);
+  }
+
 }
