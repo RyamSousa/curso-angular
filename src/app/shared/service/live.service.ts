@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LiveService {
 
-  readonly apiUrl = 'http://localhost:8080/content'
+  readonly apiUrl = 'http://localhost:8080'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,8 +18,9 @@ export class LiveService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getLives(): Observable<Live[]>{
-    return this.httpClient.get<Live[]>(this.apiUrl);
+  public getLives(path: string): Observable<Live[]>{
+    console.log(`${this.apiUrl}/${path}`);
+    return this.httpClient.get<Live[]>(`${this.apiUrl}/${path}`);
   }
 
   public createLives(live: Live): Observable<Live>{

@@ -1,5 +1,6 @@
-import { Live } from './../../../shared/model/live.model';
-import { LiveService } from './../../../shared/service/live.service';
+import { Live } from './../../../../shared/model/live.model';
+import { LiveService } from './../../../../shared/service/live.service';
+
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -12,6 +13,8 @@ export class LiveListComponent implements OnInit {
 
   livesPrevious: Live[];
   livesNext: Live[];
+  next: boolean = false;
+  previous: boolean = false;
 
   constructor(public livesService: LiveService, public sanitizer: DomSanitizer) { }
 
@@ -20,19 +23,20 @@ export class LiveListComponent implements OnInit {
   }
 
   getLives() {
-    this.livesService.getLives().subscribe(data => {
+    this.livesService.getLives('previous').subscribe(data => {
       this.livesPrevious = data;
       this.livesPrevious.forEach(l => {
         l.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(l.liveLink);
       })
+      this.previous = true;
     });
 
-    this.livesService.getLives().subscribe(data => {
+    this.livesService.getLives('next').subscribe(data => {
       this.livesNext = data;
       this.livesNext.forEach(l => {
         l.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(l.liveLink);
       });
-      this.livesNext = this.livesNext.filter(l => l.id > 9);
+      this.next = true;
     });
 
   }

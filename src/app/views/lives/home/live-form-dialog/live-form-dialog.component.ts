@@ -1,4 +1,4 @@
-import { LiveService } from './../../../shared/service/live.service';
+import { LiveService } from './../../../../shared/service/live.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -30,10 +30,22 @@ export class LiveFormDialogComponent implements OnInit {
   }
   createLive(){
     let newDate: moment.Moment = moment.utc(this.liveForm.value.liveDate).local();
-    this.liveForm.value.liveDate = newDate.format("YYYY-MM-DD" + "T" + this.liveForm.value.liveTime);
-    this.liveService.createLives(this.liveForm.value).subscribe(result => {});
-    this.dialogRef.close();
-    this.liveForm.reset();
+
+    if(
+      this.liveForm.value.liveName &&
+      this.liveForm.value.channelName &&
+      this.liveForm.value.liveLink &&
+      this.liveForm.value.liveDate &&
+      this.liveForm.value.liveTime
+      ){
+        this.liveForm.value.liveDate = newDate.format("YYYY-MM-DD" + "T" + this.liveForm.value.liveTime);
+        this.liveService.createLives(this.liveForm.value).subscribe(result => {});
+        this.dialogRef.close();
+        this.liveForm.reset();
+        window.location.reload();
+      }else{
+        alert("Preencha todos os campos");
+      }
   }
   cancel(): void {
     this.dialogRef.close();
